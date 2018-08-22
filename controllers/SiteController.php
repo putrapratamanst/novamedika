@@ -124,7 +124,8 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             $log->user_id = Yii::$app->user->identity->user_id;
             $log->save();
-            return $this->redirect('index');
+            return $this->redirect('/pasien/create');
+            // return $this->redirect('index');
         }
 
         return $this->render('login', [

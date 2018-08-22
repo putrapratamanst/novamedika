@@ -54,5 +54,5 @@ body.A5.landscape .sheet { width: 210mm; height: 148mm }
            body.A3.landscape { width: 420mm }
   body.A3, body.A4.landscape { width: 297mm }
   body.A4, body.A5.landscape { width: 210mm; height: 148mm }
-  body.A5                    { width: 148mm }
+  body.A5                    { width: 148mm;transform: scale(.7); }
 }

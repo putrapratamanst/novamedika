@@ -49,6 +49,14 @@ class PasienController extends Controller
              'model' => $this->findModel($id),
         ]);
     }
+
+    public function actionPrintRmBelakang($id)
+    {   
+        $this->layout = "print";
+         return $this->render('rm_belakang', [
+             'model' => $this->findModel($id),
+        ]);
+    }
     
     public function actionIndex()
     {

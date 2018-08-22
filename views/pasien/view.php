@@ -62,9 +62,17 @@ $this->title = $model->nama;
 			],
 		]) 
 	?>
-	<p class="pull-right">
+
+<!-- 	<p class="pull-right">
 		<?= Html::a('<i class="pe-7s-print"></i> Cetak RM Normal', ['/pasien/print', 'id' => $model->id], ['class' => 'btn btn-danger','target'=>'_blank']) ?>
 		<?= Html::a('<i class="pe-7s-print"></i> Cetak RM Mini', ['/pasien/print-mini', 'id' => $model->id], ['class' => 'btn btn-info','target'=>'_blank']) ?>
+		<?= Html::a('<i class="pe-7s-print"></i> Cetak Resep', ['/pasien/print-resep', 'id' => $model->id], ['class' => 'btn btn-warning','target'=>'_blank'])?>
+	</p>
+ -->	
+
+    <p class="pull-right">
+		<?= Html::a('<i class="pe-7s-print"></i> Cetak RM Depan', ['/pasien/print-mini', 'id' => $model->id], ['class' => 'btn btn-info','target'=>'_blank']) ?>
+		<?= Html::a('<i class="pe-7s-print"></i> Cetak RM Belakang', ['/pasien/print-rm-belakang', 'id' => $model->id], ['class' => 'btn btn-danger','target'=>'_blank']) ?>
 		<?= Html::a('<i class="pe-7s-print"></i> Cetak Resep', ['/pasien/print-resep', 'id' => $model->id], ['class' => 'btn btn-warning','target'=>'_blank'])?>
 	</p>
 		<br>
