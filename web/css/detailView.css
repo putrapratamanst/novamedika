@@ -1,0 +1,15 @@
+
+.card{
+	width: 60%;
+	 margin: auto;
+    border: 0.5px solid #2ab4c0;
+    padding: 10px;
+}
+
+table.detail-view th {
+    width: 30%;
+}
+
+table.detail-view td {
+        width: 75%;
+}

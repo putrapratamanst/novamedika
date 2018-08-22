@@ -1,0 +1,142 @@
+/*  @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+*/
+
+main {
+  background: #EEE;
+  width: 600px;
+  margin: 20px auto;
+  padding: 10px 0;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.3);
+}
+h2 {
+  text-align: center;
+}
+p {
+  font-size: 13px;
+}
+input {
+  display: none;
+  visibility: hidden;
+}
+label {
+  display: block;
+  padding: 0.5em;
+  text-align: center;
+  border-bottom: 1px solid #CCC;
+  color: #666;
+}
+label:hover {
+  color: #000;
+}
+label::before {
+  font-family: Consolas, monaco, monospace;
+  font-weight: bold;
+  font-size: 15px;
+  content: "+";
+  vertical-align: text-top;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 3px;
+  background: radial-gradient(ellipse at center, #CCC 50%, transparent 50%);
+}
+#expand {
+  height: 0px;
+  overflow: hidden;
+  transition: height 0.5s;
+  color: black;
+}
+
+#toggle:checked ~ #expand {
+  height: 250px;
+}
+#toggle:checked ~ label::before {
+  content: "-";
+}
+ toggle-box {
+  display: none;
+}
+
+.toggle-box + label {
+  cursor: pointer;
+  display: block;
+  font-weight: bold;
+  line-height: 21px;
+  margin-bottom: 5px;
+}
+
+.toggle-box + label + div {
+  display: none;
+  margin-bottom: 10px;
+}
+
+.toggle-box:checked + label + div {
+  display: block;
+}
+
+.toggle-box + label:before {
+  background-color: #4F5150;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  color: #FFFFFF;
+  content: "+";
+  display: block;
+  float: left;
+  font-weight: bold;
+  height: 20px;
+  line-height: 20px;
+  margin-right: 5px;
+  text-align: center;
+  width: 20px;
+}
+
+.toggle-box:checked + label:before {
+  content: "\2212";
+}
+body { -webkit-animation: bugfix infinite 2s; }
+@-webkit-keyframes bugfix { from { padding: 0; } to { padding: 0; } }
+
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 0.3px solid #c7c7c7;
+    text-align: left;
+    padding: 8px;
+}
+#customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#customers td, #customers th {
+    border: 0px solid #ddd;
+    padding: 8px;
+}
+
+
+.floatLeft { width: 50%; float: left; }
+.floatRight {width: 50%; float: right; }
+.container { overflow: hidden; }
+
+#pulsate {
+ /* width: 50px;
+  height: 50px;*/
+  border-radius: 20px;
+  animation: out 1.5s infinite ease-out;
+  /*background: #000;*/
+  /*position: fixed;
+  top: 50%;
+  left: 50%;
+  margin: -25px 0px 0px -25px;*/
+}
+
+@keyframes out {
+  0% {box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 1);} 
+  100% {box-shadow: 0px 0px 0px 20px rgba(0, 0, 0, 0.0);}
+} 

@@ -1,0 +1,5 @@
+user type:
+0 untuk admin
+1 untuk dokter
+2 untuk penanggung jawab bidan
+3 bidan (atau penginput)
