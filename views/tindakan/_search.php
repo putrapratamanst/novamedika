@@ -1,43 +1,57 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use yii\bootstrap\ActiveForm;
+// use yii\widgets\ActiveForm;
+use kartik\date\DatePicker;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\TindakanSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+<div class="tindakan-index">
+
 
 <div class="tindakan-search">
 
     <?php $form = ActiveForm::begin([
-        'action' => ['index'],
+        'action' => ['kunjungan'],
         'method' => 'get',
+        'options' => ['autoComplete'=>'off'],
+        'fieldConfig' => [
+            'template' => "{label}\n{beginWrapper}\n{input}\n{hint}\n{error}\n{endWrapper}",
+            'horizontalCssClasses' => [
+                'label' => 'col-sm-3',
+                'wrapper' => 'col-sm-9',
+                'error' => '',
+                'hint' => '',
+            ],
+        ],
+
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
+    <?php  echo $form->field($model, 'created_date')->widget(\yii\jui\DatePicker::class,[
+    'dateFormat'    => 'yyyy-MM-dd',
+    'language'      => 'id',
+    'options'       => ['placeholder' => 'Masukkan tanggal Kunjungan','style' => 'width: 30%',],
 
-    <?= $form->field($model, 'pemeriksaan_fisik') ?>
-
-    <?= $form->field($model, 'anamnesa') ?>
-
-    <?= $form->field($model, 'diagnosa') ?>
-
-    <?= $form->field($model, 'terapi') ?>
-
-    <?php // echo $form->field($model, 'biaya') ?>
-
-    <?php // echo $form->field($model, 'created_date') ?>
-
-    <?php // echo $form->field($model, 'updated_date') ?>
-
-    <?php // echo $form->field($model, 'id_pasien') ?>
+    ])->label(false) ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
+        <?= Html::submitButton('Cari', ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Hapus', ['/tindakan/kunjungan'], ['class' => 'btn btn-danger','style'=>'margin-right:20px',]) ?>
+
     </div>
 
     <?php ActiveForm::end(); ?>
 
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>

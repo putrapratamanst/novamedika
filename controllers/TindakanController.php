@@ -44,6 +44,19 @@ class TindakanController extends Controller
         ]);
     }
 
+    public function actionKunjungan()
+    {
+        $this->layout = "main_utama";
+        $searchModel = new TindakanSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('kunjungan', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+
     /**
      * Displays a single Tindakan model.
      * @param integer $id

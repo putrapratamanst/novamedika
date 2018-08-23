@@ -154,7 +154,7 @@ $path = "/".$controller."/".$action;
                 </a>
             </li>
 
-            <li <?php
+<!--             <li <?php
             if ($path == "/log/index"){
                 echo 'class= active';
             }
@@ -166,6 +166,20 @@ $path = "/".$controller."/".$action;
                 <a href="/log">
                     <i class="pe-7s-clock"></i>
                     <p>Waktu Kerja</p>
+                </a>
+            </li> -->
+            <li <?php
+            if ($path == "/tindakan/kunjungan"){
+                echo 'class= active';
+            }
+            if ($path == "/log/view"){
+                echo 'class= active';
+            }else{
+                'class= ';
+            }?>>
+                <a href="/tindakan/kunjungan">
+                    <i class="pe-7s-clock"></i>
+                    <p>Kunjungan</p>
                 </a>
             </li>
         <?php }?>
