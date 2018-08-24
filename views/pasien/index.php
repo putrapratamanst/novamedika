@@ -96,7 +96,7 @@ $this->registerCss($this->render('table.css'));
                                 'class'         => 'yii\grid\ActionColumn',
                                 'header'        => "Pilihan",
                                 'headerOptions' => ['style'=>'font-weight:bold;'],
-                                'template'      => '{view} {print}',
+                                'template'      => '{view} {print-mini} ',
                                 'contentOptions'=> ['style'=>'width: 200px;text-align:center'],
                                 'buttons'       => [
                                     'view' => function ($url,$model) {
@@ -110,16 +110,17 @@ $this->registerCss($this->render('table.css'));
                                             ]
                                         );
                                     },
-                                    'print' => function ($url,$model) {
-                                        $titleNormal = "Cetak RM Normal";
+                                    'print-mini' => function ($url,$model) {
+                                        $titleNormal = "Cetak RM Depan";
                                         $icon = " <i class='pe-7s-print'></i>";
                                         $labelNormal = $icon . ' ' . $titleNormal;
-                                        $optionsNormal = ['class'=>'btn btn-danger col-lg-12', 'data-pjax' => 0,/*to prevent pjax*/ 'target'=>'_blank'];
+                                        // $urlMini = "print-mini?id=".$model->id;
+                                        $optionsNormal = ['class'=>'btn btn-info col-lg-12', 'data-pjax' => 0,/*to prevent pjax*/ 'target'=>'_blank'];
 
-                                        $titleMini = "Cetak RM Mini";
+                                        $titleMini = "Cetak RM Belakang";
                                         $labelMini = $icon . ' ' . $titleMini;
-                                        $urlMini = "print-mini?id=".$model->id;
-                                        $optionsMini = ['class'=>'btn btn-info col-lg-12','data-pjax' => 0,'target'=>'_blank'];
+                                        $urlMini = "print-rm-belakang?id=".$model->id;
+                                        $optionsMini = ['class'=>'btn btn-danger col-lg-12','data-pjax' => 0,'target'=>'_blank'];
 
                                         $titleResep = "Cetak RM Resep";
                                         $labelResep = $icon . ' ' . $titleResep;
