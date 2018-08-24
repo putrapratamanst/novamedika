@@ -39,6 +39,20 @@ $this->title = 'Kunjungan';
                     return $model->pasien->nama;
                 }
             ],
+
+            [
+                'attribute'=>'status',
+                'label'=>"Status",
+                'value'=>function($model)
+                    {
+                        if($model->status == 0){
+                                return "Rawat Jalan";
+                        }if($model->status == 1){
+                                return "Rawat Inap";
+                        }
+                    }
+            ],
+
             [
                 'attribute'      => 'created_date',
                 'label'          => 'Tanggal Kunjungan',

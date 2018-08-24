@@ -38,8 +38,13 @@ use kartik\date\DatePicker;
     'dateFormat'    => 'yyyy-MM-dd',
     'language'      => 'id',
     'options'       => ['placeholder' => 'Masukkan tanggal Kunjungan','style' => 'width: 30%',],
+    ])->label('Tanggal Masuk') ?>
 
-    ])->label(false) ?>
+    <?php  echo $form->field($model, 'end_date')->widget(\yii\jui\DatePicker::class,[
+    'dateFormat'    => 'yyyy-MM-dd',
+    'language'      => 'id',
+    'options'       => ['placeholder' => 'Masukkan tanggal Kunjungan','style' => 'width: 30%',],
+    ])->label('Tanggal Keluar') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Cari', ['class' => 'btn btn-primary']) ?>

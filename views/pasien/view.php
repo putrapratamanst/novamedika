@@ -43,7 +43,7 @@ $this->title = $model->nama;
 				'no_ktp',
 				'no_bpjs',
 				'alamat:ntext',
-				 [
+				[
 					'attribute'=>'cara_bayar',
 					'label'=>"Cara Pembayaran",
 					'value'=>function($model)

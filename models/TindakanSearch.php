@@ -16,11 +16,13 @@ class TindakanSearch extends Tindakan
      * @inheritdoc
      */
     public $id_pasien_custom;
+    public $end_date;
+
     public function rules()
     {
         return [
             [['id'], 'integer'],
-            [['pemeriksaan_penunjang', 'obat', 'diagnosa', 'terapi', 'biaya', 'created_date', 'updated_date','id_pasien','id_pasien_custom'], 'safe'],
+            [['pemeriksaan_penunjang', 'obat', 'diagnosa', 'terapi', 'biaya', 'created_date', 'updated_date','id_pasien','id_pasien_custom','end_date'], 'safe'],
         ];
     }
 
@@ -77,7 +79,9 @@ class TindakanSearch extends Tindakan
             ->andFilterWhere(['like', 'obat', $this->obat])
             ->andFilterWhere(['like', 'diagnosa', $this->diagnosa])
             // ->andFilterWhere(['like', 'pasien.nama', $this->id_pasien])
-            ->andFilterWhere(['like', 'tindakan.created_date', $this->created_date])
+            // ->andFilterWhere(['like', 'tindakan.created_date', $this->created_date])
+            ->andFilterWhere(['between','date(tindakan.created_date)', $this->created_date, $this->end_date])
+            
             ->andFilterWhere(['like', 'biaya', $this->biaya]);
 
         return $dataProvider;
