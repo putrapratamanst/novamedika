@@ -1,10 +1,10 @@
 <?php 
 use app\models\Pasien;
 ?>
-<link rel="stylesheet" href="<?= Yii::getAlias('@web/css/') ?>print.css">
+<link rel="stylesheet" href="<?= Yii::getAlias('@web/css/') ?>print.css" media="print">
 
 <style>@page {
-   size: A5 landscape ; 
+   size: legal landscape; 
  }
 
 .alphabet{
@@ -31,7 +31,7 @@ use app\models\Pasien;
 }
 .myinfo {
     /*width: 150px;*/
-    height: 750px;
+    height: 650px;
     float: left;
     border-left: 2px solid black;
     /*padding-left: 10px;*/

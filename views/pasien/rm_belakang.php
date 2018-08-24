@@ -5,7 +5,8 @@ use app\models\Pasien;
 
 <style>@page {
    /*size: A4 ; */
-   size: A5 ; 
+   size: legal landscape; 
+   /*size: A5 ; */
  }
 
 .alphabet{

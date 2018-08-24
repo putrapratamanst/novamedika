@@ -1,10 +1,11 @@
 <?php 
 use app\models\Pasien;
 ?>
-  <link rel="stylesheet" href="<?= Yii::getAlias('@web/css/') ?>print.css">
+  <link rel="stylesheet" href="<?= Yii::getAlias('@web/css/') ?>print.css" media="print">
 
   <style>@page {
-   size: A5 ; 
+   size: legal landscape;  
+   /*size: A5 ; */
  }
 
 </style>
@@ -14,26 +15,28 @@ use app\models\Pasien;
 
    
   <!-- Main content -->
-  <section class="sheet padding-2mm">
+  <section class="sheet padding-0mm">
     <!-- /.row -->
 
     <div class="row" style="margin:auto;">
-      <div class="col-xs-12 table-responsive" style="font-size: 18px">
+      <div class="col-xs-12 table-responsive" style="font-size: 20px">
         <div class="floating-box">
           <br>
-          <img src="<?= Yii::getAlias('@web/theme/') ?>img/logoresep.png?>" width="4000"/>
-                  Dokter: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <img src="<?= Yii::getAlias('@web/theme/') ?>img/logoresep.png?>" width="970px"/><br>
+                  <img src="<?= Yii::getAlias('@web/theme/') ?>img/garis.png?>" width="385px"/><br>
+
+        Dokter:<br>
           Tanggal: 
           <?php
                use app\models\Helper;
                // echo "Kamis, 22 September 2018"
                 echo Helper::indoDateFormat(date("Y:m:d h:i:s ")); 
-               ?>
-                  <img src="<?= Yii::getAlias('@web/theme/') ?>img/garis.png?>" width="4000"/>
+               ?><br>
+                  <img src="<?= Yii::getAlias('@web/theme/') ?>img/garis.png?>" width="385px"/>
 
         </div>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <img src="<?= Yii::getAlias('@web/theme/') ?>img/garis.png?>" width="4000"/>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <img src="<?= Yii::getAlias('@web/theme/') ?>img/garis.png?>" width="385px"/>
         <br>
         Pro&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <?= $model->nama;?><br>
         Umur &nbsp;: <?= Pasien::getAge($model->tanggal_lahir);?> tahun
