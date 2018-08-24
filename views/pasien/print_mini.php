@@ -31,7 +31,7 @@ use app\models\Pasien;
 }
 .myinfo {
     /*width: 150px;*/
-    height: 650px;
+    height: 730px;
     float: left;
     border-left: 2px solid black;
     /*padding-left: 10px;*/
