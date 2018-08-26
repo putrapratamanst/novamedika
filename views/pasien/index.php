@@ -29,12 +29,6 @@ $this->registerCss($this->render('table.css'));
                             'filterModel'   => $searchModel,
                             'options'       => ['style' => 'padding:15px;'],
                             'columns'       => [
-                                // [
-                                //     'attribute' => 'no_rm',
-                                //     'label'     => 'No. RM',
-                                //     'headerOptions'=> ['style' => 'width:100px;'],
-                                // ],
-
                                 [
                                     'attribute' => 'no_rm',
                                     'headerOptions'=> ['style' => 'width:170px;'],
@@ -71,12 +65,28 @@ $this->registerCss($this->render('table.css'));
 
                                 [
                                     'attribute' => 'no_ktp',
+                                    'value'     => function ($model) {
+                                        if (empty($model->no_ktp)) {
+                                            return "-";
+                                        } else {
+                                            return $model->no_ktp;
+                                        } 
+                                    },
                                     'headerOptions'=> ['style' => 'width:200px;'],
                                 ],
+
                                 [
                                     'attribute' => 'no_bpjs',
+                                    'value'     => function ($model) {
+                                        if (empty($model->no_bpjs)) {
+                                            return "-";
+                                        } else {
+                                            return $model->no_bpjs;
+                                        } 
+                                    },
                                     'headerOptions'=> ['style' => 'width:200px;'],
                                 ],
+
                                 [
                                     'headerOptions'=> ['style' => 'width:150px;'],
                                     'attribute' => 'cara_bayar',

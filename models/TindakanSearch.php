@@ -17,12 +17,16 @@ class TindakanSearch extends Tindakan
      */
     public $id_pasien_custom;
     public $end_date;
+    public $cara_bayar;
+    public $total_pasien;
+    public $total_jalan;
+    public $total_inap;
 
     public function rules()
     {
         return [
             [['id'], 'integer'],
-            [['pemeriksaan_penunjang', 'obat', 'diagnosa', 'terapi', 'biaya', 'created_date', 'updated_date','id_pasien','id_pasien_custom','end_date'], 'safe'],
+            [['pemeriksaan_penunjang', 'obat', 'diagnosa', 'terapi', 'biaya', 'created_date', 'updated_date','id_pasien','id_pasien_custom', 'end_date', 'status', 'cara_bayar' ,'total_pasien' ,'total_jalan' ,'total_inap'], 'safe'],
         ];
     }
 
@@ -44,6 +48,9 @@ class TindakanSearch extends Tindakan
      */
     public function search($params)
     {
+        $this->total_pasien = Pasien::find()->where(['like','created_date',date('Y-m-d')])->count();
+        $this->total_jalan = self::find()->where(['like','date(created_date)', date('Y-m-d')])->andWhere(['status'=>0])->count();
+        $this->total_inap = self::find()->where(['like','date(created_date)', date('Y-m-d')])->andWhere(['status'=>1])->count();
         $query = Tindakan::find()->orderBy(['created_date'=>SORT_DESC]);
 
 
@@ -70,6 +77,7 @@ class TindakanSearch extends Tindakan
             'id' => $this->id,
             // 'tindakan.created_date' => $this->created_date,
             'updated_date' => $this->updated_date,
+            'status' => $this->status,
             'pasien.nama' => $this->id_pasien,
             'pasien.no_rm' => $this->id_pasien_custom,
 
@@ -79,9 +87,8 @@ class TindakanSearch extends Tindakan
             ->andFilterWhere(['like', 'obat', $this->obat])
             ->andFilterWhere(['like', 'diagnosa', $this->diagnosa])
             // ->andFilterWhere(['like', 'pasien.nama', $this->id_pasien])
-            // ->andFilterWhere(['like', 'tindakan.created_date', $this->created_date])
+            ->andFilterWhere(['like', 'pasien.cara_bayar', $this->cara_bayar])
             ->andFilterWhere(['between','date(tindakan.created_date)', $this->created_date, $this->end_date])
-            
             ->andFilterWhere(['like', 'biaya', $this->biaya]);
 
         return $dataProvider;

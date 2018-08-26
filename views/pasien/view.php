@@ -40,8 +40,29 @@ $this->title = $model->nama;
 							}
 				],
 				'no_rm',
-				'no_ktp',
-				'no_bpjs',
+				[
+				    'attribute' => 'no_ktp',
+				    'value'     => function ($model) {
+				        if (empty($model->no_ktp)) {
+				            return "-";
+				        } else {
+				            return $model->no_ktp;
+				        } 
+				    },
+				    'headerOptions'=> ['style' => 'width:200px;'],
+				],
+
+				[
+				    'attribute' => 'no_bpjs',
+				    'value'     => function ($model) {
+				        if (empty($model->no_bpjs)) {
+				            return "-";
+				        } else {
+				            return $model->no_bpjs;
+				        } 
+				    },
+				    'headerOptions'=> ['style' => 'width:200px;'],
+				],
 				'alamat:ntext',
 				[
 					'attribute'=>'cara_bayar',
